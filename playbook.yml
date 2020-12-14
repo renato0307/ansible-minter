@@ -1,0 +1,22 @@
+# playbook.yml:
+---
+- name: "Laptop Configuration"
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: Update all packages to their latest version
+      apt:
+        name: "*"
+        state: latest
+    - name: Install git
+      apt:
+        name: git
+        state: present
+        update_cache: yes
+    - name: Install zsh
+      apt:
+        name: zsh
+        state: present
+        update_cache: yes
+    - name: Set zsh as default
+      shell: chsh -s $(which zsh)
