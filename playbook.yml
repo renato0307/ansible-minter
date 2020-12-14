@@ -8,11 +8,13 @@
       apt:
         name: "*"
         state: latest
+
     - name: Install git
       apt:
         name: git
         state: present
         update_cache: yes
+
     - name: Install zsh
       apt:
         name: zsh
@@ -20,3 +22,13 @@
         update_cache: yes
     - name: Set zsh as default
       shell: chsh -s $(which zsh)
+
+    - name: Download MEGAsync
+      get_url:
+        url: https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/megasync-xUbuntu_20.04_amd64.deb
+        dest: /tmp/megasync.deb
+        mode: 700
+
+    - name: Install MEGAsync
+      apt:
+        deb: /tmp/megasync.deb
