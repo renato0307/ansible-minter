@@ -52,3 +52,9 @@
       apt:
         name: forticlient
         state: present
+    # tree
+    - name: Install tree
+      apt:
+        name: tree
+        state: present
+        update_cache: yes
