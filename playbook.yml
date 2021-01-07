@@ -58,3 +58,19 @@
         name: tree
         state: present
         update_cache: yes
+    # Insomia
+    - name: "Adds insomnia apt key"
+      apt_key:
+        url: https://insomnia.rest/keys/debian-public.key.asc
+        state: present
+    - name: Add insomnia repository into sources list
+      apt_repository:
+        repo: deb https://dl.bintray.com/getinsomnia/Insomnia /
+        state: present
+    - name: Run the equivalent of "apt-get update" for insomnia
+      apt:
+        update_cache: yes
+    - name: Install insomnia
+      apt:
+        name: insomnia
+        state: present
