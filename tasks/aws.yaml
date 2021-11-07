@@ -23,4 +23,4 @@
 
 - name: Install awscli
   command:
-    cmd: /tmp/aws/install
+    cmd: /tmp/aws/install --update

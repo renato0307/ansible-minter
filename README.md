@@ -4,5 +4,6 @@ Ansible configuration to bootstrap a linux mint laptop
 ## run play book
 
 ```
-sudo ansible-playbook "playbook.yml"
+ansible-playbook pre-requirements.yaml
+ansible-playbook local.yaml --ask-become
 ```
