@@ -14,5 +14,6 @@
     - include: tasks/docker.yaml
     - include: tasks/linux-tools.yaml
     - include: tasks/oh-my-zsh.yaml
+    - include: tasks/python.yaml    
     - include: tasks/ssh.yaml
     - include: tasks/vscode.yaml
