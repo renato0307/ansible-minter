@@ -1,0 +1,6 @@
+- name: Install MEGA CMD
+  apt:
+    deb: https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/megacmd-xUbuntu_20.04_amd64.deb
+- name: Install MEGA SYNC
+  apt:
+    deb: https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/megasync-xUbuntu_20.04_amd64.deb

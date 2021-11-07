@@ -1,0 +1,17 @@
+- name: Create ~/.ssh dir
+  become: false
+  file:
+    path: ~/.ssh
+    state: directory
+
+- name: Unzip SSH configuration files - provide password to decrypt
+  become: false
+  unarchive:
+    src: ~/MEGAsync/Security/ssh.zip
+    dest: ~/.ssh
+    decrypt: yes
+
+- name: Adds key to ssh-agent
+  become: False
+  command:
+    cmd: ssh-add ~/.ssh/id_rsa

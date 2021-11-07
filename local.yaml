@@ -1,0 +1,18 @@
+- hosts: localhost
+  become: true
+  pre_tasks:
+    - name: Update repositories
+      apt: update_cache=yes
+      changed_when: False
+  vars_prompt:
+  - name: "my_password"
+    prompt: "Enter password"
+    private: yes
+
+  tasks:
+    - include: tasks/aws.yaml
+    - include: tasks/docker.yaml
+    - include: tasks/linux-tools.yaml
+    - include: tasks/oh-my-zsh.yaml
+    - include: tasks/ssh.yaml
+    - include: tasks/vscode.yaml

@@ -1,0 +1,17 @@
+- name: Add microsoft GPG key for vscode
+  apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+
+- name: Add vscode apt repository
+  apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+    state: present
+
+- name: Install vscode & dependencies
+  apt:
+    pkg:
+    - software-properties-common
+    - apt-transport-https
+    - wget
+    - code

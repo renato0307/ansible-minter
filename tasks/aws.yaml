@@ -1,0 +1,26 @@
+- name: Create ~/.aws dir
+  become: false
+  file:
+    path: ~/.aws
+    state: directory
+
+- name: Unzip AWS configuration files - provide password to decrypt
+  become: false
+  unarchive:
+    src: ~/MEGAsync/Security/aws.zip
+    dest: ~/.aws
+    decrypt: yes
+
+- name: Download awscli
+  get_url:
+    url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+    dest: /tmp/awscliv2.zip
+
+- name: Unzip awscli
+  unarchive:
+    src: /tmp/awscliv2.zip
+    dest: /tmp
+
+- name: Install awscli
+  command:
+    cmd: /tmp/aws/install
